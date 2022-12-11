@@ -1,7 +1,11 @@
+import ProjectName from "@/components/ProjectName";
+
 const Studio = () => {
   return (
     <div>
-      <main></main>
+      <main>
+        <ProjectName />
+      </main>
     </div>
   );
 };
