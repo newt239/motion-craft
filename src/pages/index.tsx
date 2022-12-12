@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import CreateNewProject from "@/components/CreateNewProject";
-
 const Home = () => {
   return (
     <div>
@@ -10,9 +9,11 @@ const Home = () => {
         <meta name="description" content="オンライン動画生成アプリ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <CreateNewProject />
-      </main>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <main style={{ maxWidth: 800, flexGrow: 1 }}>
+          <CreateNewProject />
+        </main>
+      </div>
     </div>
   );
 };
