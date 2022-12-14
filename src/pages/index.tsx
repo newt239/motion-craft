@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import CreateNewProject from "@/components/CreateNewProject";
+import SavedProjectList from "@/components/SavedProjectList";
 const Home = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Home = () => {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <main style={{ maxWidth: 800, flexGrow: 1 }}>
           <CreateNewProject />
+          <SavedProjectList />
         </main>
       </div>
     </div>

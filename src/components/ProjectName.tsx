@@ -7,7 +7,7 @@ import { db } from "@/db";
 const ProjectName: React.FC = () => {
   const router = useRouter();
   const { pid } = router.query;
-  const project = useLiveQuery(() =>
+  const project = useLiveQuery(async () =>
     db.projects
       .where("id")
       .equals(pid as string)

@@ -1,6 +1,14 @@
 import { useState } from "react";
 
-import { Button, FormGroup, H2, InputGroup, Overlay } from "@blueprintjs/core";
+import {
+  Button,
+  FormGroup,
+  H2,
+  Icon,
+  InputGroup,
+  Overlay,
+} from "@blueprintjs/core";
+import moment from "moment";
 import { useRouter } from "next/router";
 
 import { db } from "@/db";
@@ -15,6 +23,8 @@ const CreateNewProject: React.FC = () => {
       await db.projects.add({
         id,
         name,
+        createdAt: moment().toString(),
+        updatedAt: moment().toString(),
       });
       router.push(`/project/${id}/studio`);
     } catch (err) {
@@ -24,7 +34,7 @@ const CreateNewProject: React.FC = () => {
   };
   return (
     <div>
-      <H2>新規プロジェクトの作成</H2>
+      <H2>プロジェクトの作成</H2>
       <FormGroup
         intent={nameError ? "danger" : "none"}
         label="プロジェクトID"
@@ -55,9 +65,16 @@ const CreateNewProject: React.FC = () => {
           onChange={(v) => setName(v.target.value as string)}
         />
       </FormGroup>
-      <Button onClick={createProject} disabled={!id || !!nameError}>
-        作成
-      </Button>
+      <div style={{ textAlign: "right" }}>
+        <Button
+          onClick={createProject}
+          disabled={!id || !!nameError}
+          intent="primary"
+          icon="add"
+        >
+          新規作成
+        </Button>
+      </div>
     </div>
   );
 };
