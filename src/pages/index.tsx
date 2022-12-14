@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import CreateNewProject from "@/components/CreateNewProject";
-import SavedProjectList from "@/components/SavedProjectList";
+import CreateNewProject from "#/components/CreateNewProject";
+import SavedProjectList from "#/components/SavedProjectList";
 const Home = () => {
   return (
     <div>

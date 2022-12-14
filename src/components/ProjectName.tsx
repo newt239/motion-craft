@@ -2,7 +2,7 @@ import { EditableText, H1 } from "@blueprintjs/core";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useRouter } from "next/router";
 
-import { db } from "@/db";
+import { db } from "#/db";
 
 const ProjectName: React.FC = () => {
   const router = useRouter();

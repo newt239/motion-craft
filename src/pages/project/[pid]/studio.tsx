@@ -1,7 +1,7 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
-import ProjectName from "@/components/ProjectName";
+import ProjectName from "#/components/ProjectName";
 
 const Studio = () => {
   const router = useRouter();

@@ -11,7 +11,7 @@ import {
 import moment from "moment";
 import { useRouter } from "next/router";
 
-import { db } from "@/db";
+import { db } from "#/db";
 
 const CreateNewProject: React.FC = () => {
   const router = useRouter();

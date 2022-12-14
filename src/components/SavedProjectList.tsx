@@ -13,7 +13,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import moment from "moment";
 import Link from "next/link";
 
-import { db } from "@/db";
+import { db } from "#/db";
 
 const SavedProjectList: React.FC = () => {
   const [projectId, setProjectId] = useState<string | null>(null);

@@ -1,4 +1,4 @@
-import "@/components/ui/Templete.css";
+import "#/components/ui/Templete.css";
 
 interface ButtonProps {
   /**
