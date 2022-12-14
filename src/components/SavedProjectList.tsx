@@ -38,7 +38,7 @@ const SavedProjectList: React.FC = () => {
             >
               <H3>{project.name}</H3>
               <Button
-                icon="delete"
+                icon="trash"
                 outlined
                 onClick={() => setProjectId(project.id)}
               />

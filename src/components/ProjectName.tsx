@@ -10,7 +10,7 @@ const ProjectName: React.FC = () => {
   const project = useLiveQuery(async () =>
     db.projects
       .where("id")
-      .equals(pid as string)
+      .equals(pid || "")
       .first()
   );
   return (
