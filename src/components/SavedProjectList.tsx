@@ -13,7 +13,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import moment from "moment";
 import Link from "next/link";
 
-import { db } from "@/db";
+import { db } from "#/db";
 
 const SavedProjectList: React.FC = () => {
   const [projectId, setProjectId] = useState<string | null>(null);
@@ -38,7 +38,7 @@ const SavedProjectList: React.FC = () => {
             >
               <H3>{project.name}</H3>
               <Button
-                icon="delete"
+                icon="trash"
                 outlined
                 onClick={() => setProjectId(project.id)}
               />
