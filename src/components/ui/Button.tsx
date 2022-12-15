@@ -1,5 +1,13 @@
-function Button({ children }: { children?: React.FC }) {
-  return <button>{children}</button>;
-}
+import { ReactNode } from "react";
+
+import { Button as BPButton } from "@blueprintjs/core";
+
+type ButtonProps = {
+  children?: ReactNode;
+};
+
+const Button = ({ children }: ButtonProps) => {
+  return <BPButton>{children}</BPButton>;
+};
 
 export default Button;

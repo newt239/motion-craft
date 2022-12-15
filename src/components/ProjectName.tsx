@@ -16,7 +16,7 @@ const ProjectName: React.FC = () => {
   return (
     <div>
       {project && (
-        <H1>
+        <H1 style={{ margin: 0 }}>
           <EditableText
             value={project.name}
             onChange={(v) => db.projects.where({ id: pid }).modify({ name: v })}

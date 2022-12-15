@@ -1,7 +1,8 @@
-import { Button } from "@blueprintjs/core";
+import { Alignment, Button, Navbar } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
 import ProjectName from "#/components/ProjectName";
+import Toolbar from "#/components/Toolbar";
 
 const Studio = () => {
   const router = useRouter();
@@ -11,12 +12,21 @@ const Studio = () => {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             gap: "1rem",
           }}
         >
-          <Button icon="home" onClick={() => router.push("/")} />
-          <ProjectName />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <Button icon="home" onClick={() => router.push("/")} />
+            <ProjectName />
+          </div>
+          <Toolbar />
         </div>
       </main>
     </div>

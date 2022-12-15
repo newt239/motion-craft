@@ -1,3 +1,4 @@
+import "@blueprintjs/core/lib/css/blueprint.css";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
