@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-import { Button, FormGroup, InputGroup } from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
 import db from "#/db";
@@ -10,7 +8,7 @@ const CreateNewObject: React.FC = () => {
   const { pid } = router.query;
   const createProject = async () => {
     try {
-      const objectId = await db.objects.put({
+      await db.objects.put({
         projectId: pid as string,
         type: "text",
         content: "hello",
@@ -22,7 +20,6 @@ const CreateNewObject: React.FC = () => {
         },
         duration: 3,
       });
-      console.log(objectId);
     } catch (err) {
       console.log(err);
     }

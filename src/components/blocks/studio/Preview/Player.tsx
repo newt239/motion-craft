@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { useRouter } from "next/router";
 
-import Object from "#/components/Object";
+import Object from "#/components/blocks/studio/Preview/Object";
 import db from "#/db";
 
 const Player: React.FC = () => {
