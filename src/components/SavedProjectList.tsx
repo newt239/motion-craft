@@ -13,7 +13,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import moment from "moment";
 import Link from "next/link";
 
-import { db } from "#/db";
+import db from "#/db";
 
 const SavedProjectList: React.FC = () => {
   const [projectId, setProjectId] = useState<string | null>(null);
@@ -29,7 +29,7 @@ const SavedProjectList: React.FC = () => {
       <H2>保存済みのプロジェクト</H2>
       {projects && projects.length !== 0 ? (
         projects.map((project) => (
-          <Card key={project.id} style={{ margin: "1rem" }}>
+          <Card key={project.projectId} style={{ margin: "1rem" }}>
             <div
               style={{
                 display: "flex",
@@ -40,11 +40,11 @@ const SavedProjectList: React.FC = () => {
               <Button
                 icon="trash"
                 outlined
-                onClick={() => setProjectId(project.id)}
+                onClick={() => setProjectId(project.projectId)}
               />
             </div>
             <Text>{moment(project.createdAt).format("MM/DD HH:mm")}更新</Text>
-            <Link href={`/project/${project.id}/studio`}>開く</Link>
+            <Link href={`/project/${project.projectId}/studio`}>開く</Link>
           </Card>
         ))
       ) : (

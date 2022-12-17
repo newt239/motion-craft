@@ -9,6 +9,7 @@ import Toolbar from "#/components/Toolbar";
 
 const Studio = () => {
   const router = useRouter();
+
   return (
     <div>
       <main>

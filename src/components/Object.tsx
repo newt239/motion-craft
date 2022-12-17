@@ -1,19 +1,22 @@
+import { ObjectDBProps } from "#/db";
+
 type ObjectProps = {
-  objectId: string;
+  object: ObjectDBProps;
 };
 
-const Object: React.FC<ObjectProps> = ({ objectId }) => {
+const Object: React.FC<ObjectProps> = ({ object }) => {
   return (
     <div
-      id={objectId}
+      id={`object-${object.objectId}`}
       style={{
         position: "absolute",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
+        ...object.from,
       }}
     >
-      Hello!
+      {object.content}
     </div>
   );
 };
