@@ -1,13 +1,6 @@
 import { useState } from "react";
 
-import {
-  Button,
-  FormGroup,
-  H2,
-  Icon,
-  InputGroup,
-  Overlay,
-} from "@blueprintjs/core";
+import { Button, FormGroup, H2, InputGroup } from "@blueprintjs/core";
 import moment from "moment";
 import { useRouter } from "next/router";
 
@@ -15,18 +8,18 @@ import { db } from "#/db";
 
 const CreateNewProject: React.FC = () => {
   const router = useRouter();
-  const [id, setId] = useState("");
+  const [projectId, setProjectId] = useState("");
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState<string | null>(null);
   const createProject = async () => {
     try {
       await db.projects.add({
-        id,
+        projectId,
         name,
         createdAt: moment().toString(),
         updatedAt: moment().toString(),
       });
-      router.push(`/project/${id}/studio`);
+      router.push(`/project/${projectId}/studio`);
     } catch (err) {
       console.log(err);
       setNameError("IDが既存のプロジェクトと重複しています。");
@@ -46,10 +39,10 @@ const CreateNewProject: React.FC = () => {
           intent={nameError ? "danger" : "none"}
           id="project-id"
           placeholder="test"
-          value={id}
+          value={projectId}
           onChange={(v) => {
             setNameError(null);
-            setId(v.target.value as string);
+            setProjectId(v.target.value as string);
           }}
         />
       </FormGroup>
@@ -68,7 +61,7 @@ const CreateNewProject: React.FC = () => {
       <div style={{ textAlign: "right" }}>
         <Button
           onClick={createProject}
-          disabled={!id || !!nameError}
+          disabled={!projectId || !!nameError}
           intent="primary"
           icon="add"
         >

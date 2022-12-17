@@ -8,10 +8,7 @@ const ProjectName: React.FC = () => {
   const router = useRouter();
   const { pid } = router.query;
   const project = useLiveQuery(async () =>
-    db.projects
-      .where("id")
-      .equals(pid || "")
-      .first()
+    db.projects.where({ projectId: pid }).first()
   );
   return (
     <div>
@@ -19,7 +16,9 @@ const ProjectName: React.FC = () => {
         <H1 style={{ margin: 0 }}>
           <EditableText
             value={project.name}
-            onChange={(v) => db.projects.where({ id: pid }).modify({ name: v })}
+            onChange={(v) =>
+              db.projects.where({ projectId: pid }).modify({ name: v })
+            }
           />
         </H1>
       )}

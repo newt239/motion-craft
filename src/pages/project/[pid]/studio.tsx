@@ -1,6 +1,7 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
+import CreateNewObject from "#/components/CreateNewObject";
 import PlayButton from "#/components/PlayButton";
 import Player from "#/components/Player";
 import ProjectName from "#/components/ProjectName";
@@ -31,6 +32,7 @@ const Studio = () => {
           <Toolbar />
           <Player />
           <PlayButton />
+          <CreateNewObject />
         </div>
       </main>
     </div>
