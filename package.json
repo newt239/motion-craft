@@ -20,6 +20,7 @@
     "dexie-react-hooks": "^1.1.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "gsap": "^3.11.3",
     "moment": "^2.29.4",
     "next": "12.3.0",
     "react": "17.0.2",

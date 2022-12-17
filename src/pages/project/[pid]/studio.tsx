@@ -1,6 +1,8 @@
-import { Alignment, Button, Navbar } from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
+import PlayButton from "#/components/PlayButton";
+import Player from "#/components/Player";
 import ProjectName from "#/components/ProjectName";
 import Toolbar from "#/components/Toolbar";
 
@@ -27,6 +29,8 @@ const Studio = () => {
             <ProjectName />
           </div>
           <Toolbar />
+          <Player />
+          <PlayButton />
         </div>
       </main>
     </div>
