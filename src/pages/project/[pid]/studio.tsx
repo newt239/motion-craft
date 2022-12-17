@@ -1,23 +1,14 @@
-import { Button } from "@blueprintjs/core";
-import { useRouter } from "next/router";
-
-import ProjectName from "#/components/ProjectName";
+import Header from "#/components/blocks/studio/Header";
+import CreateNewObject from "#/components/blocks/studio/ObjectConfig/CreateNewObject";
+import Preview from "#/components/blocks/studio/Preview";
 
 const Studio = () => {
-  const router = useRouter();
   return (
     <div>
       <main>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
-          }}
-        >
-          <Button icon="home" onClick={() => router.push("/")} />
-          <ProjectName />
-        </div>
+        <Header />
+        <Preview />
+        <CreateNewObject />
       </main>
     </div>
   );

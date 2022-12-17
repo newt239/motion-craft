@@ -14,11 +14,13 @@
   },
   "dependencies": {
     "@blueprintjs/core": "^4.13.0",
+    "@blueprintjs/popover2": "^1.10.2",
     "@emotion/react": "^11.10.5",
     "dexie": "^3.2.2",
     "dexie-react-hooks": "^1.1.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "gsap": "^3.11.3",
     "moment": "^2.29.4",
     "next": "12.3.0",
     "react": "17.0.2",

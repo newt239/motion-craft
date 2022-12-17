@@ -1,21 +1,34 @@
 import Dexie, { Table } from "dexie";
 
-export interface Projects {
-  id: string;
+export type DexieDatabase = { [P in keyof Dexie]: Dexie[P] };
+
+export type ProjectDBProps = {
+  projectId: string;
   name: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type ObjectDBProps = {
+  objectId?: number;
+  projectId: string;
+  type: "text";
+  content: string;
+  from: React.CSSProperties;
+  to: gsap.TweenVars;
+  duration: number;
+};
+
+export interface MotionCraftDatabase extends DexieDatabase {
+  projects: Table<ProjectDBProps>;
+  objects: Table<ObjectDBProps>;
 }
 
-export class MySubClassedDexie extends Dexie {
-  projects!: Table<Projects>;
+const db = new Dexie("motion-craft") as MotionCraftDatabase;
+db.version(1).stores({
+  projects: "projectId, name, createdAt, updatedAt",
+  objects: "++objectId, projectId, type, content, from, to, duration",
+});
+db.open();
 
-  constructor() {
-    super("motion-craft");
-    this.version(1).stores({
-      projects: "id, name, createdAt, up",
-    });
-  }
-}
-
-export const db = new MySubClassedDexie();
+export default db;
