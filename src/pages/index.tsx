@@ -1,5 +1,6 @@
-import { Container } from "@mantine/core";
 import Head from "next/head";
+
+import { Container } from "@mantine/core";
 
 import CreateNewProject from "#/components/blocks/home/CreateNewProject";
 import SavedProjectList from "#/components/blocks/home/SavedProjectList";

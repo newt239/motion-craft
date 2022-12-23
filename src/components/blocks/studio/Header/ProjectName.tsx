@@ -1,6 +1,7 @@
+import { useRouter } from "next/router";
+
 import { Input } from "@mantine/core";
 import { useLiveQuery } from "dexie-react-hooks";
-import { useRouter } from "next/router";
 
 import db from "#/db";
 

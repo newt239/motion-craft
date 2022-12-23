@@ -1,6 +1,7 @@
-import { MantineProvider } from "@mantine/core";
 import { AppProps } from "next/app";
 import dynamic from "next/dynamic";
+
+import { MantineProvider } from "@mantine/core";
 import "#/global.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
