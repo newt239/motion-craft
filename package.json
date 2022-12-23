@@ -13,8 +13,6 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@blueprintjs/core": "^4.13.0",
-    "@blueprintjs/popover2": "^1.10.2",
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.9.5",
     "@mantine/form": "^5.9.5",
@@ -32,7 +30,6 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
     "@types/node": "^18.11.13",
     "@types/react": "^17.0.2",
     "eslint": "8.29.0",

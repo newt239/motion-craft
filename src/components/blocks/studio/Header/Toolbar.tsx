@@ -1,5 +1,3 @@
-import { ButtonGroup, MenuDivider, MenuItem } from "@blueprintjs/core";
-import { Popover2 } from "@blueprintjs/popover2";
 import { Menu, Button, Text } from "@mantine/core";
 import {
   IconSettings,
