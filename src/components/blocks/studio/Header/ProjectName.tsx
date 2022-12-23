@@ -1,6 +1,7 @@
-import { EditableText, H1 } from "@blueprintjs/core";
-import { useLiveQuery } from "dexie-react-hooks";
 import { useRouter } from "next/router";
+
+import { Input } from "@mantine/core";
+import { useLiveQuery } from "dexie-react-hooks";
 
 import db from "#/db";
 
@@ -20,14 +21,14 @@ const ProjectName: React.FC = () => {
     return (
       <div>
         {projects.length === 1 && (
-          <H1 style={{ margin: 0 }}>
-            <EditableText
-              value={projects[0].name}
-              onChange={(v) =>
-                db.projects.where({ projectId: pid }).modify({ name: v })
-              }
-            />
-          </H1>
+          <Input
+            variant="unstyled"
+            value={projects[0].name}
+            onChange={(v) =>
+              db.projects.where({ projectId: pid }).modify({ name: v })
+            }
+            size="xl"
+          />
         )}
       </div>
     );

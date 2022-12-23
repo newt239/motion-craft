@@ -1,5 +1,6 @@
-import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
+
+import { Button } from "@mantine/core";
 
 import db from "#/db";
 
@@ -27,9 +28,7 @@ const CreateNewObject: React.FC = () => {
   return (
     <div>
       <div style={{ textAlign: "right" }}>
-        <Button onClick={createProject} intent="primary" icon="add">
-          新規作成
-        </Button>
+        <Button onClick={createProject}>新規作成</Button>
       </div>
     </div>
   );

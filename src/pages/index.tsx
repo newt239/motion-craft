@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import { Container } from "@mantine/core";
+
 import CreateNewProject from "#/components/blocks/home/CreateNewProject";
 import SavedProjectList from "#/components/blocks/home/SavedProjectList";
 
@@ -12,10 +14,10 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <main style={{ maxWidth: 800, flexGrow: 1 }}>
+        <Container>
           <CreateNewProject />
           <SavedProjectList />
-        </main>
+        </Container>
       </div>
     </div>
   );

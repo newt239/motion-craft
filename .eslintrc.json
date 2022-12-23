@@ -3,8 +3,7 @@
     "next/core-web-vitals",
     "plugin:import/recommended",
     "plugin:import/warnings",
-    "prettier",
-    "plugin:storybook/recommended"
+    "prettier"
   ],
   "rules": {
     "import/prefer-default-export": "off",
@@ -23,7 +22,7 @@
         ],
         "pathGroups": [
           {
-            "pattern": "{react,react-dom/**,react-router-dom}",
+            "pattern": "{react,react-dom/**,react-router-dom,next,next/**}",
             "group": "builtin",
             "position": "before"
           }

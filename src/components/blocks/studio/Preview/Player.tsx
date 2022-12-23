@@ -1,5 +1,6 @@
-import { useLiveQuery } from "dexie-react-hooks";
 import { useRouter } from "next/router";
+
+import { useLiveQuery } from "dexie-react-hooks";
 
 import Object from "#/components/blocks/studio/Preview/Object";
 import db from "#/db";
