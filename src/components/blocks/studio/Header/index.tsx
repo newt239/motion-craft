@@ -2,6 +2,7 @@ import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 
 import ProjectName from "#/components/blocks/studio/Header/ProjectName";
+import Toolbar from "#/components/blocks/studio/Header/Toolbar";
 
 const Header = () => {
   const router = useRouter();
@@ -24,7 +25,9 @@ const Header = () => {
         <Button icon="home" onClick={() => router.push("/")} />
         <ProjectName />
       </div>
+      <Toolbar />
     </div>
   );
 };
+
 export default Header;

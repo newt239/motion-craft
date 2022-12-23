@@ -34,4 +34,5 @@ const Toolbar: React.FC = () => {
     </div>
   );
 };
+
 export default Toolbar;
