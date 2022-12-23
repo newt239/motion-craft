@@ -1,4 +1,4 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@mantine/core";
 import { useLiveQuery } from "dexie-react-hooks";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
@@ -25,6 +25,6 @@ const PlayButton: React.FC = () => {
     }
     tl.play();
   };
-  return <Button icon="play" onClick={playAnime} />;
+  return <Button onClick={playAnime}>再生</Button>;
 };
 export default PlayButton;

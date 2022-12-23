@@ -1,6 +1,5 @@
-import { useState } from "react";
-
-import { Button, FormGroup, H2, InputGroup } from "@blueprintjs/core";
+import { Group, TextInput, Button, Title } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import moment from "moment";
 import { useRouter } from "next/router";
 
@@ -8,66 +7,51 @@ import db from "#/db";
 
 const CreateNewProject: React.FC = () => {
   const router = useRouter();
-  const [projectId, setProjectId] = useState("");
-  const [name, setName] = useState("");
-  const [nameError, setNameError] = useState<string | null>(null);
-  const createProject = async () => {
-    try {
-      await db.projects.add({
-        projectId,
-        name,
-        createdAt: moment().toString(),
-        updatedAt: moment().toString(),
-      });
-      router.push(`/project/${projectId}/studio`);
-    } catch (err) {
-      console.log(err);
-      setNameError("IDが既存のプロジェクトと重複しています。");
+  const form = useForm<{ project_id: string; project_name: string }>({
+    initialValues: {
+      project_id: "",
+      project_name: "",
+    },
+    validate: (values) => ({
+      project_id:
+        values.project_id.length === 0 ? "IDが入力されていません" : null,
+    }),
+    validateInputOnChange: true,
+  });
+
+  const createProject = () => {
+    if (form.validate()) {
+      const timestamp = moment().toString();
+      db.projects
+        .add({
+          projectId: form.values.project_id,
+          name: form.values.project_name,
+          createdAt: timestamp,
+          updatedAt: timestamp,
+        })
+        .then((project_id) => {
+          form.reset();
+          router.push(`/project/${project_id}/studio`);
+        });
     }
   };
+
   return (
     <div>
-      <H2>プロジェクトの作成</H2>
-      <FormGroup
-        intent={nameError ? "danger" : "none"}
+      <Title order={2}>プロジェクトの作成</Title>
+      <TextInput
+        withAsterisk
         label="プロジェクトID"
-        labelFor="project-id"
-        labelInfo="(required)"
-        helperText={nameError}
-      >
-        <InputGroup
-          intent={nameError ? "danger" : "none"}
-          id="project-id"
-          placeholder="test"
-          value={projectId}
-          onChange={(v) => {
-            setNameError(null);
-            setProjectId(v.target.value as string);
-          }}
-        />
-      </FormGroup>
-      <FormGroup
+        {...form.getInputProps("project_id")}
+      />
+      <TextInput
         label="プロジェクト名"
-        labelFor="project-name"
-        labelInfo="(required)"
-      >
-        <InputGroup
-          id="project-name"
-          placeholder="テスト"
-          value={name}
-          onChange={(v) => setName(v.target.value as string)}
-        />
-      </FormGroup>
-      <div style={{ textAlign: "right" }}>
-        <Button
-          onClick={createProject}
-          disabled={!projectId || !!nameError}
-          intent="primary"
-          icon="add"
-        >
-          新規作成
-        </Button>
-      </div>
+        placeholder="テスト"
+        {...form.getInputProps("project_name")}
+      />
+      <Group position="right" mt="md">
+        <Button onClick={createProject}>新規作成</Button>
+      </Group>
     </div>
   );
 };
